@@ -52,7 +52,9 @@ client
 
 app.get("/", (req, res) => {
   redisClient.set("products", "products...");
-  res.send("<h1>Hello from azure and custom domain?</h1>");
+  res.send(
+    "<h1>Hello from azure and custom domain?</h1><h2>Yes, from azure and custom domain</h2>"
+  );
 });
 
 app.get("/data", async (req, res) => {
