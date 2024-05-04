@@ -2,6 +2,7 @@ const express = require("express");
 // const mongoose = require("mongoose");
 const redis = require("redis");
 const { Client } = require("pg");
+const os = require("os");
 const PORT = process.env.PORT || 4000;
 
 const app = express();
@@ -53,7 +54,8 @@ client
 app.get("/", (req, res) => {
   redisClient.set("products", "products...");
   res.send(
-    "<h1>Hello from azure and custom domain?</h1><h2>Yes, from azure and custom domain</h2><h3>one more change</h3>"
+    "<h1>Hello from azure and custom domain?</h1><h2>Yes, from azure and custom domain</h2><h3>one more change</h3>" +
+      `message from ${os.hostname}`
   );
 });
 
